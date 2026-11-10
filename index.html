@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorteador Online</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Sorteador Online</h1>
+    <p>Esse é um sorteador online rápido e fácil.</p>
+
+    <label for="elementos">Insira os nomes (um por linha):</label>
+    <textarea id="elementos" rows="5"></textarea>
+    
+    <div class="controles-textarea">
+        <button type="button" id="btn-limpar">× Limpar lista</button>
+        <span id="contador-participantes"><strong>0</strong> participantes</span>
+    </div>
+
+    <div class="opcoes-sorteio">
+        <div class="opcao-item">
+            <label for="qtd-ganhadores">Nº de Ganhadores</label>
+            <input type="number" id="qtd-ganhadores" value="1" min="1">
+        </div>
+        <div class="opcao-item">
+            <span class="label-animacao">Animação contagem regressiva</span>
+            <label class="switch">
+                <input type="checkbox" id="chk-animacao" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+
+    <button type="button" id="btn-sortear">Sortear</button>
+
+    <div id="resultado"></div>
+    
+    <section class="secao-explicativa">
+        <h2>Como funciona o sorteador de nomes?</h2>
+        <p>O sorteador de nomes embaralha a sua lista de participantes com um algoritmo confiável. Cada nome recebe exatamente a mesma probabilidade de ser escolhido, e o resultado é gerado na hora, direto no navegador, sem cadastro e de forma 100% gratuita.</p>
+
+        <h2>Para que serve um sorteio de nomes?</h2>
+        <p>O sorteio de nomes resolve qualquer escolha que precise ser imparcial dentro de um grupo. Ele é ideal para amigo secreto, distribuição de brindes e prêmios, escolha de quem vai apresentar ou começar um jogo, formação de duplas e equipes, sorteios entre clientes e dinâmicas em sala de aula ou no trabalho.</p>
+
+        <h2>Como fazer um sorteio de nomes justo?</h2>
+        <p>Veja como sortear nomes em poucos passos:</p>
+        <ol>
+            <li>Cole ou digite a lista de participantes, um nome por linha.</li>
+            <li>Use Remover duplicados para que ninguém apareça mais de uma vez.</li>
+            <li>Escolha quantos ganhadores deseja sortear.</li>
+            <li>Clique em Sortear para revelar o resultado na hora.</li>
+        </ol>
+
+        <h2>Dicas para um sorteio de nomes transparente</h2>
+        <ul>
+            <li>Confira a lista antes de sortear e remova nomes repetidos para manter a justiça.</li>
+            <li>Compartilhe a tela com os participantes durante o sorteio para dar transparência.</li>
+            <li>Defina com antecedência quantos ganhadores haverá e se haverá suplentes.</li>
+            <li>Salve um print do resultado com o código do sorteio para comprovar o ganhador.</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Sorteador Online. Desenvolvido por Você.</p>
+    </footer>
+
+    <div id="modal-resultado" class="modal-overlay">
+        <div class="modal-conteudo">
+            <div class="modal-cabecalho">
+                <span class="icone-trofeu">🏆</span>
+                <h2>Parabéns!</h2>
+                <p class="codigo-sorteio">Sorteio Feito</p>
+            </div>
+            <div class="modal-corpo">
+                <div class="ganhador-linha">
+                    <span class="tag-posicao">Primeiro</span>
+                    <span id="nome-ganhador" class="nome-ganhador"></span>
+                </div>
+            </div>
+            <div class="modal-rodape">
+                <button type="button" id="btn-fechar-modal">Novo sorteio</button>
+            </div>
+        </div>
+    </div>
+
+   
+    <div id="overlay-contagem" class="contagem-overlay">
+        <div class="circulo-contagem">
+            <span id="numero-contagem">5</span>
+        </div>
+    </div>
+
+
+    <audio id="som-sorteio" src="suspense.mp3" preload="auto"></audio>
+    
+    <script src="https://jsdelivr.net"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
